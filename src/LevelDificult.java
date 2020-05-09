@@ -1,4 +1,4 @@
-import java.util.Scanner;
+/*import java.util.Scanner;
 
 //переименовавть в выбор уровня - левел селекшион
 
@@ -37,3 +37,4 @@ public class LevelDificult {
 
     }
 }
+*/

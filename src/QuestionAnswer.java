@@ -1,4 +1,4 @@
-import java.util.Scanner;
+/*import java.util.Scanner;
 
 public class QuestionAnswer {
     public void questionAnswer() {
@@ -118,3 +118,4 @@ public class QuestionAnswer {
         say.interestingFact();
     }
 }
+*/

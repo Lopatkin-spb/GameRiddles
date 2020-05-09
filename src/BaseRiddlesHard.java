@@ -1,2 +1,3 @@
-public class BaseRiddlesHard {
+/*public class BaseRiddlesHard {
 }
+*/

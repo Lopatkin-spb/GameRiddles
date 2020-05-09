@@ -1,4 +1,4 @@
-import java.util.Scanner;
+/*import java.util.Scanner;
 
 //переименовать в выбор легкой загадки - изи риддл чейс
 //загадки с сайта арзамас академи
@@ -184,4 +184,4 @@ public class BaseRiddlesEasy {
         }
         //sc.close();
     }
-}
+}*/

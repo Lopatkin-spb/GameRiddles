@@ -1,4 +1,5 @@
-import java.util.Scanner;
+
+/*import java.util.Scanner;
 
 public class Main {
 
@@ -33,10 +34,14 @@ public class Main {
 
 
 
-    public static void main(String[] args) {
+    public static void main(String args[]) {
 //        System.out.println("rrrr");
 //        System.out.print("ddddd");
 //       System.out.print("\r\r");
+
+        WindowGame gw= new WindowGame();
+  //      gw.WindowGame();
+
 
 
 
@@ -93,5 +98,8 @@ public class Main {
 
     }
 
-//sc.close();
+//sc.clo
+
 }
+
+*/
