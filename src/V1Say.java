@@ -1,4 +1,4 @@
-public class Say {
+/*public class Say {
 
     public void interestingFact() {
         String[] interestingFact = new String[10];
@@ -87,3 +87,5 @@ public class Say {
         return random;
     }
 }
+
+ */

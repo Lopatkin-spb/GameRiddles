@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
-public class Panel extends JPanel implements ActionListener {
+public class V2Panel extends JPanel implements ActionListener {
 
     //razmer paneli
     public static int WIDHT = Toolkit.getDefaultToolkit().getScreenSize().width;
@@ -23,16 +23,16 @@ public class Panel extends JPanel implements ActionListener {
     public static boolean settmenue = false;
     public static boolean levelmenue = false;
     //spisok knopok
-    public ArrayList<SettMenue> buttons;
+    public ArrayList<V2SettMenue> buttons;
 
 
     //obekti klassov back i player
-    Back back = new Back();
-    Player player = new Player();
-    Menue menue = new Menue();
+    V2Back v2Back = new V2Back();
+    V2Player v2Player = new V2Player();
+    V2Menue v2Menue = new V2Menue();
 
 
-    public Panel() {
+    public V2Panel() {
         //konstruktor roditela
         super();
         setFocusable(true); //pereda4a fokusa
@@ -45,16 +45,16 @@ public class Panel extends JPanel implements ActionListener {
         g = (Graphics2D) image.getGraphics();
 
         //dobavliaem obrabot4iki sobitii klik miw, klaviaturi, peremewenia miwi
-        addMouseListener(new Listeners());
-        addKeyListener(new Listeners());
-        addMouseMotionListener(new Listeners());
+        addMouseListener(new V2Listeners());
+        addKeyListener(new V2Listeners());
+        addMouseMotionListener(new V2Listeners());
 
-        buttons = new ArrayList<SettMenue>();
-        buttons.add(new SettMenue(500, 210, 100, 37, "", "вкл"));
-        buttons.add(new SettMenue(650, 210, 100, 37, "", "выкл"));
-        buttons.add(new SettMenue(500, 365, 100, 37, "", "стандарт"));
-        buttons.add(new SettMenue(650, 365, 100, 37, "", "пользоват"));
-        buttons.add(new SettMenue(1250, 20, 100, 37, "", "назад"));
+        buttons = new ArrayList<V2SettMenue>();
+        buttons.add(new V2SettMenue(500, 210, 100, 37, "", "вкл"));
+        buttons.add(new V2SettMenue(650, 210, 100, 37, "", "выкл"));
+        buttons.add(new V2SettMenue(500, 365, 100, 37, "", "стандарт"));
+        buttons.add(new V2SettMenue(650, 365, 100, 37, "", "пользоват"));
+        buttons.add(new V2SettMenue(1250, 20, 100, 37, "", "назад"));
     }
 
 
@@ -70,14 +70,14 @@ public class Panel extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (state.equals(STATES.MENUE)) {
             //otobrazit fon
-            back.draw(g);
+            v2Back.draw(g);
             if (buttmenue) {
-                menue.draw(g); //otobrazit menu
-                menue.moveButt(menue.button1);
-                menue.moveButt(menue.button2);
-                menue.moveButt(menue.button3);
-                menue.moveButt(menue.button4);
-                menue.moveButt(menue.button5);
+                v2Menue.draw(g); //otobrazit menu
+                v2Menue.moveButt(v2Menue.button1);
+                v2Menue.moveButt(v2Menue.button2);
+                v2Menue.moveButt(v2Menue.button3);
+                v2Menue.moveButt(v2Menue.button4);
+                v2Menue.moveButt(v2Menue.button5);
             }
             //stranica menu nastroek
             if (settmenue) {
@@ -151,10 +151,10 @@ public class Panel extends JPanel implements ActionListener {
     public void moveSettButt() {
         for (int i = 0; i < buttons.size(); i++) {
             buttons.get(i).draw(g);
-            if (Panel.mouseX > buttons.get(i).getX() &&
-                    Panel.mouseX < buttons.get(i).getX() + buttons.get(i).getW() &&
-                    Panel.mouseY > buttons.get(i).getY() &&
-                    Panel.mouseY < buttons.get(i).getY() + buttons.get(i).getH()) {
+            if (V2Panel.mouseX > buttons.get(i).getX() &&
+                    V2Panel.mouseX < buttons.get(i).getX() + buttons.get(i).getW() &&
+                    V2Panel.mouseY > buttons.get(i).getY() &&
+                    V2Panel.mouseY < buttons.get(i).getY() + buttons.get(i).getH()) {
                 buttons.get(i).srcImg = "image/button1.png";
             } else {
                 buttons.get(i).srcImg = "image/button1.png";
@@ -165,14 +165,14 @@ public class Panel extends JPanel implements ActionListener {
 
     //risuem v virtualnom okne
     public void gameRender() {
-        back.draw(g);
-        player.draw(g);
+        v2Back.draw(g);
+        v2Player.draw(g);
     }
 
 
     //obnovlenie
     public void gameUpdate() {
-        player.update();
+        v2Player.update();
     }
 
 

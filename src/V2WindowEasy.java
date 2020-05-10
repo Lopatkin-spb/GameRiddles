@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class WindowEasy extends JPanel {
+public class V2WindowEasy extends JPanel {
 
 
     private JButton butto[] = new JButton[4];
@@ -9,7 +9,7 @@ public class WindowEasy extends JPanel {
     private JTextField questi = new JTextField();
 
 
-    public WindowEasy() {
+    public V2WindowEasy() {
 
         setBackground(Color.PINK);
         setLayout(null); //размещение кнопок как нам хочется

@@ -1,4 +1,4 @@
-public class Knowing {
+/*public class Knowing {
 
     public void knowing(String[] args) {
 
@@ -32,3 +32,5 @@ public class Knowing {
 
  //  загадка на тему поколения
 }
+
+ */

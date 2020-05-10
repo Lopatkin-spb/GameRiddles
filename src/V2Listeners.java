@@ -1,6 +1,6 @@
 import java.awt.event.*;
 
-public class Listeners implements MouseListener, KeyListener, MouseMotionListener {
+public class V2Listeners implements MouseListener, KeyListener, MouseMotionListener {
 
 
     @Override
@@ -16,20 +16,20 @@ public class Listeners implements MouseListener, KeyListener, MouseMotionListene
         int key = e.getKeyCode();
         //proverka klaviwi
         if (key == KeyEvent.VK_UP) {
-            Player.up = true;
+            V2Player.up = true;
         }
         if (key == KeyEvent.VK_DOWN) {
-            Player.down = true;
+            V2Player.down = true;
         }
         if (key == KeyEvent.VK_LEFT) {
-            Player.left = true;
+            V2Player.left = true;
         }
         if (key == KeyEvent.VK_RIGHT) {
-            Player.right = true;
+            V2Player.right = true;
         }
         if (key == KeyEvent.VK_ESCAPE) {
-            if (Panel.state == Panel.STATES.PLAY) {
-                Panel.state = Panel.STATES.MENUE;
+            if (V2Panel.state == V2Panel.STATES.PLAY) {
+                V2Panel.state = V2Panel.STATES.MENUE;
             }
 
         }
@@ -41,16 +41,16 @@ public class Listeners implements MouseListener, KeyListener, MouseMotionListene
     public void keyReleased(KeyEvent e) {
         int key = e.getKeyCode();
         if (key == KeyEvent.VK_UP) {
-            Player.up = false;
+            V2Player.up = false;
         }
         if (key == KeyEvent.VK_DOWN) {
-            Player.down = false;
+            V2Player.down = false;
         }
         if (key == KeyEvent.VK_LEFT) {
-            Player.left = false;
+            V2Player.left = false;
         }
         if (key == KeyEvent.VK_RIGHT) {
-            Player.right = false;
+            V2Player.right = false;
         }
 
     }
@@ -63,8 +63,8 @@ public class Listeners implements MouseListener, KeyListener, MouseMotionListene
     @Override
     public void mousePressed(MouseEvent e) {
         if (e.getButton() == MouseEvent.BUTTON1) {
-            if (Panel.state == Panel.STATES.MENUE) {
-                Menue.click = true;
+            if (V2Panel.state == V2Panel.STATES.MENUE) {
+                V2Menue.click = true;
             }
         }
 
@@ -73,8 +73,8 @@ public class Listeners implements MouseListener, KeyListener, MouseMotionListene
     @Override
     public void mouseReleased(MouseEvent e) {
         if (e.getButton() == MouseEvent.BUTTON1) {
-            if (Panel.state == Panel.STATES.MENUE) {
-                Menue.click = false;
+            if (V2Panel.state == V2Panel.STATES.MENUE) {
+                V2Menue.click = false;
             }
         }
 
@@ -99,7 +99,7 @@ public class Listeners implements MouseListener, KeyListener, MouseMotionListene
     @Override
     public void mouseMoved(MouseEvent e) {
         //polu4it koordinatu x i y pri peremewenii miwi
-        Panel.mouseX = e.getX();
-        Panel.mouseY = e.getY();
+        V2Panel.mouseX = e.getX();
+        V2Panel.mouseY = e.getY();
     }
 }

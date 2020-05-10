@@ -1,4 +1,4 @@
-import javax.swing.*;
+/*import javax.swing.*;
 import java.awt.*;
 
 public class LevelMenue {
@@ -53,5 +53,6 @@ public class LevelMenue {
         add(buttons[2]);
 
 
-    }*/
+    }
 }
+*/

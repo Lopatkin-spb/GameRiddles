@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class WindowGame {
+public class V2WindowGame {
 
   /*  private Font font;
     private JTextField question;
@@ -36,7 +36,7 @@ public class WindowGame {
         startFrame.setLocation(0, 0);
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         startFrame.setSize(screenSize);
-        startFrame.add(new Panel());
+        startFrame.add(new V2Panel());
 
         startFrame.setVisible(true);
 

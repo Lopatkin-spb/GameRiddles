@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class Player {
+public class V2Player {
 
 
     //nacalnie koordinati i razmer obekta
@@ -23,7 +23,7 @@ public class Player {
 
 
     //x i y - koordinati na4alnogo raspolozenia geroa, w i h - granici peremewenia (?)
-    public Player() {
+    public V2Player() {
         x = 400;
         y = 400;
         w = -820;
@@ -63,13 +63,13 @@ public class Player {
         if (up && y > 20) {
             y -= speed;
         }
-        if (down && y < Panel.HEIGHT - h) {
+        if (down && y < V2Panel.HEIGHT - h) {
             y += speed;
         }
         if (left && x > 0) {
             x -= speed;
         }
-        if (right && x < Panel.WIDTH - w) {
+        if (right && x < V2Panel.WIDTH - w) {
             x += speed;
         }
     }

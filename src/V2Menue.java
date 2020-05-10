@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class Menue {
+public class V2Menue {
     //knopki menu kak obekti
 
 
@@ -26,16 +26,16 @@ public class Menue {
 
 
     //popadanie kursora na knopku menu
-    public void moveButt(Menue.ButtMenue e) {
+    public void moveButt(V2Menue.ButtMenue e) {
         //esli kursor popal na knopku
-        if (Panel.mouseX > e.getX() && Panel.mouseX < e.getX() + e.getW() &&
-                Panel.mouseY > e.getY() && Panel.mouseY < e.getY() + e.getH()) {
+        if (V2Panel.mouseX > e.getX() && V2Panel.mouseX < e.getX() + e.getW() &&
+                V2Panel.mouseY > e.getY() && V2Panel.mouseY < e.getY() + e.getH()) {
             e.srcImg = "image/button1.png";
             if (e.equals(button1)) {
                 e.nameButt = "game";
-                if (Menue.click) { //klik lkm
-                    Panel.state = Panel.STATES.PLAY; //perehod v igru
-                    Menue.click = false;
+                if (V2Menue.click) { //klik lkm
+                    V2Panel.state = V2Panel.STATES.PLAY; //perehod v igru
+                    V2Menue.click = false;
                 }
             }
             if (e.equals(button2)) {
@@ -43,14 +43,14 @@ public class Menue {
             }
             if (e.equals(button3)) {
                 e.nameButt = "settings";
-                if (Menue.click) { //klik lkm
-                    Panel.settmenue = true; //perehod v igru
-                    Panel.buttmenue = false;
+                if (V2Menue.click) { //klik lkm
+                    V2Panel.settmenue = true; //perehod v igru
+                    V2Panel.buttmenue = false;
                 }
             }
             if (e.equals(button4)) {
                 e.nameButt = "rules";
-                if (Menue.click) { //klik lkm
+                if (V2Menue.click) { //klik lkm
 
                     /*Panel.levelmenue = true; //perehod v igru
                     Panel.buttmenue = false;*/
@@ -58,7 +58,7 @@ public class Menue {
             }
             if (e.equals(button5)) {
                 e.nameButt = "exit";
-                if (Menue.click) {
+                if (V2Menue.click) {
                     //Menue.click = true;
                     System.exit(0);
                 }

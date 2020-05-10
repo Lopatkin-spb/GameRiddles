@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class SettMenue {
+public class V2SettMenue {
 
 
     //na4alnie koordinati i razmer obekta
@@ -18,7 +18,7 @@ public class SettMenue {
     Font fontNameButt2;
 
 
-    public SettMenue(int x, int y, int w, int h, String srcImg, String nameButt) {
+    public V2SettMenue(int x, int y, int w, int h, String srcImg, String nameButt) {
         this.x = x;
         this.y = y;
         this.w = w;

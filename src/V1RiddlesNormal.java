@@ -1,4 +1,4 @@
-public class RiddlesNormal {
+/*public class RiddlesNormal {
 
 
     private String str11 = "";
@@ -61,3 +61,5 @@ public class RiddlesNormal {
 //    private String str73 = "";
 //для копирования
 }
+
+ */

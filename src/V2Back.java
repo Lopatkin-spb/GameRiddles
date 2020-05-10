@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class Back {
+public class V2Back {
 
 
     //zadnii fon igrovoi paneli
@@ -16,10 +16,10 @@ public class Back {
         g.setColor(backColor);
 
         //risuem priamougolnuu oblast
-        if (Panel.state.equals(Panel.STATES.MENUE))
-            g.fillRect(0, 0, Panel.WIDHT, Panel.HEIGHT);
+        if (V2Panel.state.equals(V2Panel.STATES.MENUE))
+            g.fillRect(0, 0, V2Panel.WIDHT, V2Panel.HEIGHT);
 
-        if (Panel.state.equals(Panel.STATES.PLAY))
+        if (V2Panel.state.equals(V2Panel.STATES.PLAY))
             //otrisovka elementa v koordinatah
             g.drawImage(img, (int) 0, (int) 0, null);
     }
