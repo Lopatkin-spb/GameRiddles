@@ -2,6 +2,7 @@ import javax.swing.*;
 
 public class Base extends JPanel {
 
+    /*
     private String str11 = "Речка спятила с ума - \nПо домам пошла сама.";
     private String strA11 = "Водопровод";
     private String str13 = "Было даже в древние века.";
@@ -18,12 +19,13 @@ public class Base extends JPanel {
     private String strA41 = "Машины";
     private String str43 = "Используется все чаще и чаще.";
 
+     */
+
     public String[] questionBase = new String[6];
     public String[] answer = new String[5];
     public String[] hint = new String[5];
 
     public Base() {
-
 
         questionBase[0] = "<html><h2>Речка спятила с ума - <br>&nbsp; &nbsp; По домам пошла сама.</h2><div right>@цитата</div></html>";
         questionBase[1] = "<html><h2>Музыкант, певец, рассказчик - <br>&nbsp; &nbsp; А всего труба да ящик.</h2><div right>@цитата</div></html>";
@@ -38,14 +40,14 @@ public class Base extends JPanel {
         answer[3] = "Машины";
         answer[4] = "Утюг";
 
-        hint[0] = "Это было даже в древние века.";
-        hint[1] = "В настоящее время это не используется.";
-        hint[2] = "Используется реже с каждым годом.";
-        hint[3] = "Используется все чаще и чаще.";
-        hint[4] = "Это есть практически в каждом доме";
+        hint[0] = "это было даже в древние века.";
+        hint[1] = "в настоящее время это не используется.";
+        hint[2] = "используется реже с каждым годом.";
+        hint[3] = "используется все чаще и чаще.";
+        hint[4] = "это есть практически в каждом доме";
 
     }
-
+/*
     public String getStr11() {
         return str11;
     }
@@ -69,6 +71,8 @@ public class Base extends JPanel {
     public void setStr13(String str13) {
         this.str13 = str13;
     }
+
+ */
 
 
 // В полотняной стране по реке простыне Плывет пароход то назад то вперед, А за ним такая гладь - ни морщинки не видать.

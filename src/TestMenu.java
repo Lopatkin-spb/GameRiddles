@@ -25,7 +25,8 @@ public class TestMenu extends JFrame {
     //testovie
     public JLabel question1;
     public String answer1;
-    public JLabel hint1;
+
+    public String hint1 = new String();
     public JLabel question2;
     public JLabel hint2;
 
@@ -33,10 +34,10 @@ public class TestMenu extends JFrame {
 
     public int sumNegativeCounterTry = 0;
     public int sumWins = 0;
-    public int flawlessWin = 0;
+    public int sumFlawlessWin = 0;
     public int sumHints = 0;
-    public int counterTryRiddle = 0;
-    public int counterTryRddlHints = 0;
+    public int counterTryRiddle;
+    public int counterTryRddlHints;
 
 
     /*   /**
@@ -56,9 +57,9 @@ public class TestMenu extends JFrame {
      * Create the frame.
      */
     public TestMenu() {
-        //setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        //setBounds(100, 100, 600, 400);
-        //setTitle("Menue GUI");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setBounds(100, 100, 600, 410);
+        setTitle("Menue GUI");
         Font fontRiddle = new Font("Verdana", Font.ITALIC, 10);
 
         Base base = new Base();
@@ -256,8 +257,8 @@ public class TestMenu extends JFrame {
         easyRiddles[5].addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 question1.setText(base.questionBase[1]);
-                answer = base.answer[1];
-                hint1.setText(base.hint[1]);
+                answer1 = base.answer[1];
+                hint1 = base.hint[1];
                 cards.show(cardPanel, "Panel 8(testPanel)");
                 testPanel.setBorder(BorderFactory.createTitledBorder("тест"));
             }
@@ -330,8 +331,10 @@ public class TestMenu extends JFrame {
         statistics.setBorder(BorderFactory.createTitledBorder("Статистика"));
 
         JLabel info = new JLabel();
-        String text1 = new String("<html>статистика игроков: <br>сколько попыток было в сумме, " +
-                "<br>сколько загадок отгадано, <br>сколько подсказок использовано, <br>сколько чистых отгадываний было - " +
+        String text1 = new String("<html>статистика " +
+                "игроков: <br>сколько попыток было в сумме, " +
+                "<br>сколько загадок отгадано, <br>сколько " +
+                "подсказок использовано, <br>сколько чистых отгадываний было - " +
                 "с первого раза<html>");
         //panel1.setLayout(null);
         info.setText(text1);
@@ -341,11 +344,14 @@ public class TestMenu extends JFrame {
 
 // Panel 8(testPanel)
         testPanel = new JPanel();
-        question1 = new JLabel();
-        hint1 = new JLabel();
 
+        counterTryRiddle = 0;
+        counterTryRddlHints = 0;
+
+        question1 = new JLabel();
         JTextField textEnter1 = new JTextField();
         JButton check1 = new JButton("Ввод");
+        JLabel copyTextEnter1 = new JLabel();
         JLabel message1 = new JLabel("Как вы думаете что это?");
         JButton previousRiddle1 = new JButton("Предыдущая");
         JButton chooseRiddle1 = new JButton("Выбор загадки");
@@ -353,87 +359,98 @@ public class TestMenu extends JFrame {
         question1.setBounds(60, 20, 400, 180);
         question1.setForeground(Color.blue);
         question1.setFont(fontRiddle);
+//кнопка для проверки счетчиков
+        JLabel counters = new JLabel("counterTryRiddle = " + counterTryRiddle + "; counterTryRddlHints = " + counterTryRddlHints);
+        counters.setBounds(100, 5, 300, 90);
+        testPanel.add(counters);
+
         textEnter1.setBounds(100, 210, 110, 30);
         check1.setBounds(250, 210, 110, 30);
-        message1.setBounds(130, 240, 300, 80);
-        previousRiddle1.setBounds(10, 320, 150, 30);
-        chooseRiddle1.setBounds(160, 320, 150, 30);
-        nextRiddle1.setBounds(310, 320, 150, 30);
-        //proverka otveta
-        //answer = new String();
+        copyTextEnter1.setBounds(130, 243, 300, 20);
+        message1.setBounds(130, 250, 300, 90);
+        previousRiddle1.setBounds(10, 330, 150, 30);
+        chooseRiddle1.setBounds(160, 330, 150, 30);
+        nextRiddle1.setBounds(310, 330, 150, 30);
         check1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                if (textEnter1.getText().equalsIgnoreCase(answer)) {
-                    while (counterTryRiddle >= 0) {
-                        if (counterTryRiddle == 0) {
-                            message1.setText(messageBasa.complimentFirst());
-                            flawlessWin = flawlessWin + 1;
-                            sumWins = sumWins + 1;
-                            break;
-                        } else {
-                            message1.setText(messageBasa.complimentSecond());
-                            sumWins = sumWins + 1;
-                            break;
-                        }
-                    }
-                    message1.setText("Вы отгадали. Это " + answer + ".");
-                    //break;
 
-                } else if (textEnter1.getText().equalsIgnoreCase("сдаюсь")) {
-                    message1.setText("Правильный ответ: " + answer + ".");
-                    //break;
-                } else {
+//блок отгаданного слова
+                if (textEnter1.getText().equalsIgnoreCase(answer1)) {
                     if (counterTryRiddle == 0) {
-                        message1.setText(messageBasa.wrongAnswer());
-                        counterTryRiddle = counterTryRiddle + 1;
-                        sumNegativeCounterTry = sumNegativeCounterTry + 1;
-                    } else if (counterTryRiddle == 1 || counterTryRiddle == 3) {
-                        counterTryRiddle = counterTryRiddle + 1;
-                        sumNegativeCounterTry = sumNegativeCounterTry + 1;
-                        message1.setText("<html>" + messageBasa.wrongAnswer() + "<br>Если хотите подсказку, введите: (да) или (д) <br>или (подсказка). " +
-                                "Либо просто продолжайте отгадывать.</html>");
+                        message1.setText("<html>" + messageBasa.complimentFirst() + ".<br>Вы отгадали. Это " + answer1 + ".</html>");
+                        sumFlawlessWin = sumFlawlessWin + 1;
+                    } else {
+                        message1.setText("<html>" + messageBasa.complimentSecond() + ".<br>Вы отгадали. Это " + answer1 + ".</html>");
+                    }
+                    sumWins = sumWins + 1;
 
-                        // message1.setText("<html>"+messageBasa.wrongAnswer()+" <br>Если хотите подсказку, введите: (да) или (д) <br>или (подсказка). " +
-                        //         "Если хотите проверить <br>себя и подумать еще, то введите: (нет) или (н).</html>");
+                    //добавить вывод колва попыток. вполне сделать чтобы блок из 3 кнопок исчезал и появлялась картинка ответа
+                    //или большая надпись "отгадано\ответ или сейчас сделать чтоб текстентер и чек исчезают
 
+//блок сдаюсь
+                } else if (textEnter1.getText().equalsIgnoreCase("сдаюсь")) {
+                    message1.setText("Правильный ответ: " + answer1 + ".");
+//блок включения подсказок
 
-                        if (counterTryRiddle == 1 && ((textEnter1.getText().equalsIgnoreCase("да")) ||
-                                (textEnter1.getText().equalsIgnoreCase("д")) ||
-                                (textEnter1.getText().equalsIgnoreCase("подсказка")))) {
-                            counterTryRddlHints = counterTryRddlHints + 1;
-                            message1.setText("Хорошо. Вот " + counterTryRddlHints + " подсказка. " +
-                                    "В слове " + answer.length() + " букв.");
-                            sumHints = sumHints + 1;
+                } else if (counterTryRiddle == 1 || counterTryRiddle == 3 ||
+                        counterTryRiddle == 6 || counterTryRiddle == 10) {
+                    counterTryRiddle = counterTryRiddle + 1;
+                    sumNegativeCounterTry = sumNegativeCounterTry + 1;
+                    message1.setText("<html>" + messageBasa.wrongAnswer() +
+                            "<br>Если хотите подсказку, " +
+                            "введите: (да) или (д) <br>или (подсказка). " +
+                            "Либо просто продолжайте отгадывать.</html>");
 
-                        } else if (counterTryRiddle == 3 && ((textEnter1.getText().equalsIgnoreCase("да")) ||
-                                (textEnter1.getText().equalsIgnoreCase("д")) ||
-                                (textEnter1.getText().equalsIgnoreCase("подсказка")))) {
-                            counterTryRddlHints = counterTryRddlHints + 1;
-                            message1.setText("Держите " + counterTryRddlHints + " подсказку. " + hint);
-                            sumHints = sumHints + 1;
+                    // <br>Если хотите подсказку, введите: (да) или (д) <br>или (подсказка). "Если хотите
+                    // проверить <br>себя и подумать еще, то введите: (нет) или (н).</html>")
 
-                        }
-                        //else if ((textEnter1.getText().equalsIgnoreCase("нет")) ||
-                        //        (textEnter1.getText().equalsIgnoreCase("н"))) {
-                        //    message1.setText("Чудесно! Тогда продолжим.");
-                        //}
+                } else if ((textEnter1.getText().equalsIgnoreCase("да")) ||
+                        (textEnter1.getText().equalsIgnoreCase("д")) ||
+                        (textEnter1.getText().equalsIgnoreCase("подсказка"))) {
+                    if (counterTryRddlHints == 0) {
+                        counterTryRddlHints = counterTryRddlHints + 1;
+                        message1.setText("<html>Хорошо. Вот " + counterTryRddlHints + " подсказка. " +
+                                "<br>В слове " + answer1.length() + " букв.</html>");
+                        sumHints = sumHints + 1;
+                    } else if (counterTryRddlHints == 1) {
+                        counterTryRddlHints = counterTryRddlHints + 1;
+                        message1.setText("<html>Держите " + counterTryRddlHints + " подсказку: <br>" + hint1 + "</html>");
+                        sumHints = sumHints + 1;
+                    } else if (counterTryRddlHints > 1) {
+                        message1.setText("К сожалению у вас кончились все подсказки.");
+                    }
+
+//блок неотгаданного слова
+                } else {
+                    message1.setText(messageBasa.wrongAnswer());
+                    counterTryRiddle = counterTryRiddle + 1;
+                    sumNegativeCounterTry = sumNegativeCounterTry + 1;
+                }
+
+//блок некорректного ввода символов: повтор слова, нерусские буквы, цифры
+                //if (textEnter1.getText().matches("[а-яА-Я]")) ||
+                //        (textEnter1.getText().equalsIgnoreCase("н"))) {
+                //    message1.setText("Чудесно! Тогда продолжим.");
+                //}
                         /*    else {
                             message1.setText("Скорректируйте ответ пожалуйста.");
                         } */
-                    } else {
-                        message1.setText(messageBasa.wrongAnswer());
-                        counterTryRiddle = counterTryRiddle + 1;
-                        sumNegativeCounterTry = sumNegativeCounterTry + 1;
-                    }
-                }
+
+//дублирование ответа после нажатия чек, обнуление поля textEnter
+                counters.setText("counterTryRiddle = " + counterTryRiddle + "; counterTryRddlHints = " + counterTryRddlHints);
+                copyTextEnter1.setText("Ваш ответ: " + textEnter1.getText());
+                textEnter1.setText(null);
             }
         });
         chooseRiddle1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                message1.setText("Как вы думаете что это?");
+                //при уходе с панели загадки обнуляются некоторые елементы
                 textEnter1.setText(null);
+                copyTextEnter1.setText(null);
+                message1.setText("Как вы думаете что это?");
                 counterTryRiddle = 0;
                 counterTryRddlHints = 0;
+                counters.setText("counterTryRiddle = " + counterTryRiddle + "; counterTryRddlHints = " + counterTryRddlHints);
                 cards.show(cardPanel, "Panel 6(selectEasyRiddles)");
             }
         });
@@ -441,6 +458,7 @@ public class TestMenu extends JFrame {
         testPanel.add(question1);
         testPanel.add(textEnter1);
         testPanel.add(check1);
+        testPanel.add(copyTextEnter1);
         testPanel.add(message1);
         testPanel.add(previousRiddle1);
         testPanel.add(chooseRiddle1);
