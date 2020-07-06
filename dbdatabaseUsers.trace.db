@@ -1,0 +1,16 @@
+2020-05-31 19:06:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Таблица "USERS" уже существует
+Table "USERS" already exists; SQL statement:
+CREATE TABLE USERS (id integer AUTO_INCREMENT PRIMARY KEY NOT NULL, user varchar(255) NOT NULL, sumTry integer NOT NULL, win  integer NOT NULL, hint integer NOT NULL, flawlessWin integer NOT NULL) [42101-200]
+2020-06-01 19:58:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Таблица "USERS" уже существует
+Table "USERS" already exists; SQL statement:
+CREATE TABLE users (id integer AUTO_INCREMENT PRIMARY KEY NOT NULL, user varchar(255) NOT NULL, sumTry integer NOT NULL, win  integer NOT NULL, hint integer NOT NULL, flawlessWin integer NOT NULL) [42101-200]
+2020-06-01 20:14:41 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Таблица "USERS" уже существует
+Table "USERS" already exists; SQL statement:
+CREATE TABLE users (id integer AUTO_INCREMENT PRIMARY KEY NOT NULL, user varchar(255) NOT NULL, sumTry integer NOT NULL, win  integer NOT NULL, hint integer NOT NULL, flawlessWin integer NOT NULL) [42101-200]
+2020-06-03 22:41:22 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Таблица "STATISTICS" не найдена
+Table "STATISTICS" not found; SQL statement:
+INSERT INTO STATISTICS (login, sumTry, win, hint, flawlessWin) VALUES (? ,0 ,0 ,0 ,0) [42102-200]
